@@ -6,17 +6,17 @@ update Users information
 */
 const bcrypt = require('bcrypt-nodejs');
 const knex = require('knex');
-const { credentials } = require('../config');
+const { credentials } = require('./config');
 
 //Configuring the Database 
 const postgres = knex({
     client: 'pg',
     connection: {
-        host: '127.0.0.1',
-        port: 5432,
-        user: 'postgres',
+        host: credentials.host,
+        port: credentials.port,
+        user: credentials.user,
         password: credentials.password,
-        database: 'postgres'
+        database: credentials.database
     }
 });
 
