@@ -4,7 +4,7 @@
   "description": "Smart brain API  containing end points for smart brain react application ",
   "main": "Server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "keywords": [
     "NodeJS",
