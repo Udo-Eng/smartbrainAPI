@@ -6,7 +6,7 @@ update Users information
 */
 const bcrypt = require('bcrypt-nodejs');
 const knex = require('knex');
-const { credentials } = require('./config');
+// const { credentials } = require('./config');
 
 //Configuring the Database 
 const postgres = knex({
@@ -35,8 +35,6 @@ exports.getUsers = async () => {
 exports.insertUser = async (newUser, res) => {
 
     let { name, email, entries, joined, hash } = newUser;
-
-
 
     postgres.transaction(async trx => {
         try {

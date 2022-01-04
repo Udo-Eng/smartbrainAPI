@@ -1,4 +1,5 @@
 const { ValidateUserLogin } = require('../db');
+const bcrypt = require('bcrypt-nodejs');
 
 
 exports.signin = async (req, res) => {
@@ -16,6 +17,4 @@ exports.signin = async (req, res) => {
     } catch (err) {
         res.status(400).json('Server Error please try again Later thanks ');
     }
-
-
 }
