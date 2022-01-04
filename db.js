@@ -12,12 +12,18 @@ const { credentials } = require('./config');
 const postgres = knex({
     client: 'pg',
     connection: {
-        host: credentials.host,
-        port: credentials.port,
-        user: credentials.user,
-        password: credentials.password,
-        database: credentials.database
+        connectionString: process.env.DATABASE_URL,
+        ssl: {
+            rejectUnauthorized: false
+        }
     }
+    // {
+    //     // host: credentials.host,
+    //     // port: credentials.port,
+    //     // user: credentials.user,
+    //     // password: credentials.password,
+    //     // database: credentials.database
+    // }
 });
 
 
