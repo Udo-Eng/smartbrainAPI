@@ -2,9 +2,9 @@
   "name": "smartbrain_api",
   "version": "1.0.0",
   "description": "Smart brain API  containing end points for smart brain react application ",
-  "main": "index.js",
+  "main": "Server.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node Server.js"
   },
   "keywords": [
     "NodeJS",
