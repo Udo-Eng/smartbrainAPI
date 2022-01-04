@@ -8,11 +8,13 @@ exports.signin = async (req, res) => {
 
 
         if (!email || !password) {
-            return res.status(400).json('Please enter the right details')
+            return res.status(400).json('Please enter the right details');
+        } else {
 
+            await ValidateUserLogin(email, password, res);
         }
 
-        await ValidateUserLogin(email, password, res);
+
 
     } catch (err) {
         res.status(400).json('Server Error please try again Later thanks ');
