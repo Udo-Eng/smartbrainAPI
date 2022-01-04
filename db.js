@@ -77,21 +77,23 @@ exports.ValidateUserLogin = async (email, password, res) => {
     try {
         const results = await postgres.select('hash').from('login').where('email', '=', email);
 
-        if (!results.length) res.status(400).json('user login details is invalid');
+        if (!results.length) {
+            return res.status(400).json('user login details is invalid')
+        };
 
         let hash = results[0].hash;
 
         bcrypt.compare(password, hash, async (err, result) => {
             if (err) {
                 console.log(err);
-                res.status(400).json('user login details is invalid');
+                return res.status(400).json('user login details is invalid');
             }
             if (result) {
                 const user = await postgres.select('*').from('users').where('email', '=', email);
-                res.json(user[0]);
+                return res.json(user[0]);
             } else {
                 console.log('req was not sent sucessfully');
-                res.status(400).json('Unable to get user Please register again ');
+                return res.status(400).json('Unable to get user Please register again ');
             }
         })
     } catch (err) {
